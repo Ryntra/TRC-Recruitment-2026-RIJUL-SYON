@@ -1,7 +1,5 @@
 # TRC-Recruitment-2026-RIJUL-SYON
 
-# TRC-Recruitment-2026-RIJULSYON
-
 NAME: RIJUL SYON<br>
 REGISTER NO: 2208001453<br>
 Electronics and communications department<br> Sem 1<br>
