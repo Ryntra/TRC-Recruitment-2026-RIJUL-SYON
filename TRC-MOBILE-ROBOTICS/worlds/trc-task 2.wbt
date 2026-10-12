@@ -1,0 +1,220 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.03701639985772317 0.00465070113639221 0.999303836238265 3.1831270903015643
+  position 0.2578875896038102 0.002599290980333226 0.04965029620483045
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 0 -0.01
+  rotation 0 0 -1 -0.7854053071795866
+  floorSize 10 10
+  floorAppearance PBRAppearance {
+    roughness 1
+    roughnessMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_roughness.jpg"
+      ]
+    }
+    metalness 0
+    normalMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_normal.jpg"
+      ]
+    }
+    occlusionMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_occlusion.jpg"
+      ]
+    }
+  }
+}
+Robot {
+  translation -0.0011181111647465814 3.9364406883232334e-09 0.007383307257309528
+  rotation -4.934316616302151e-08 -0.9999999999999959 7.767910931737528e-08 0.2075514244600245
+  children [
+    DistanceSensor {
+      name "ir1"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0.05 0.02 -0.005
+      name "ir0"
+      type "infra-red"
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.4564320125709923e-15
+        axis 0 1 0
+        anchor 0 0.045 -0.005
+      }
+      device [
+        RotationalMotor {
+          name "mtr_right"
+        }
+      ]
+      endPoint Solid {
+        translation -3.06876329151041e-07 0.04499999999998292 -0.004998609108429154
+        rotation 1 -1.2455004714799495e-09 1.244788437044396e-09 1.5707999999965725
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry DEF wheel Cylinder {
+              height 0.01
+              radius 0.0125
+            }
+          }
+        ]
+        name "right"
+        boundingObject USE wheel
+        physics Physics {
+        }
+        linearVelocity -7.715101879153185e-16 1.0690750406076159e-16 -5.862879863445077e-16
+        angularVelocity -1.491256475618958e-14 -6.27783989833766e-14 2.2403379114076217e-15
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.4458081124742492e-11
+        axis 0 1 0
+        anchor 0 -0.045 0.01
+      }
+      device [
+        RotationalMotor {
+          name "mtr_left"
+        }
+      ]
+      endPoint Solid {
+        translation -3.0689680566175045e-07 -0.045000000000002524 -0.004998609147386953
+        rotation 0.9999999999999998 1.0544063639110307e-08 -1.0543829698948035e-08 1.5707953071805532
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry DEF wheel Cylinder {
+              height 0.01
+              radius 0.0125
+            }
+          }
+        ]
+        name "left"
+        boundingObject USE wheel
+        physics Physics {
+        }
+        linearVelocity -6.633537818571953e-16 1.8017240296518865e-16 1.7995993682886244e-16
+        angularVelocity -1.8639005269478232e-14 -5.593866162771796e-14 2.6739167072097758e-15
+      }
+    }
+    Solid {
+      translation -0.0032484173140873824 1.8955294774968987e-09 -0.004386546027786547
+      rotation 6.738370872738187e-09 1 5.279883713541445e-09 -2.934041229129769
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.368627 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF body Box {
+            size 0.05 0.08 0.025
+          }
+        }
+      ]
+      boundingObject USE body
+      physics Physics {
+      }
+      linearVelocity -3.1704504567123005e-17 -1.5020109517270264e-17 -3.700484033554354e-19
+      angularVelocity -9.477894557361552e-16 -7.587573569716918e-19 2.816731006659133e-16
+    }
+  ]
+  name "line follower"
+  boundingObject USE body
+  physics Physics {
+    mass 0.001
+  }
+  controller "ir_movement_controller"
+  linearVelocity -1.0005448684586606e-15 1.7439951843063767e-16 -3.3306690738754696e-16
+  angularVelocity -8.30229835491855e-15 -5.3498789626903454e-14 -1.1371680415205699e-15
+}
+Solid {
+  translation 0.47 -0.479999 -0.033
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.05 0.05
+      }
+    }
+  ]
+}
+Solid {
+  translation -0.01 -0.959999 -0.033
+  rotation 0 0 1 3.14159
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.05 0.05
+      }
+    }
+  ]
+  name "solid(2)"
+}
+Solid {
+  translation -0.49 -0.479999 -0.033
+  rotation 0 0 -1 -1.5707953071795862
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.05 0.05
+      }
+    }
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation -0.01 0 -0.033
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.05 0.05
+      }
+    }
+  ]
+  name "solid(1)"
+}
